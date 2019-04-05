@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Routing demo</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div style="margin-left: 50px; margin-top:25px; margin-right: 50px">
+        <h1>Survey Questions</h1>
+        <hr>
+        <h2>About You</h2>
+        <p>Name (required) </p>
+        <input type="text" id="input-name" style="width:90vw">
+        <p>Photo (required) </p>
+        <input type="text" id="input-photo" style="width:90vw">
+
+        <hr>
+        <h4>Question 1</h4>
+        <p>How happy are you?</p>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle q0" value="-1" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose a rating...
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <p class="dropdown-item">1</p>
+                <p class="dropdown-item">2</p>
+                <p class="dropdown-item">3</p>
+                <p class="dropdown-item">4</p>
+                <p class="dropdown-item">5</p>
+            </div>
+        </div>
+        <br>
+        <h4>Question 2</h4>
+        <p>How strong are you?</p>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle q1" value="-1" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose a rating...
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <p class="dropdown-item">1</p>
+                <p class="dropdown-item">2</p>
+                <p class="dropdown-item">3</p>
+                <p class="dropdown-item">4</p>
+                <p class="dropdown-item">5</p>
+            </div>
+        </div>
+        <br>
+        <h4>Question 3</h4>
+        <p>How fast are you?</p>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle q2" value="-1" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose a rating...
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <p class="dropdown-item">1</p>
+                <p class="dropdown-item">2</p>
+                <p class="dropdown-item">3</p>
+                <p class="dropdown-item">4</p>
+                <p class="dropdown-item">5</p>
+            </div>
+        </div>
+        <br>
+        <h4>Question 4</h4>
+        <p>How smart are you?</p>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle q3" value="-1" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose a rating...
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <p class="dropdown-item">1</p>
+                <p class="dropdown-item">2</p>
+                <p class="dropdown-item">3</p>
+                <p class="dropdown-item">4</p>
+                <p class="dropdown-item">5</p>
+            </div>
+        </div>
+        <br>
+        <h4>Question 5</h4>
+        <p>How funny are you?</p>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle q4" value="-1" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose a rating...
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <p class="dropdown-item">1</p>
+                <p class="dropdown-item">2</p>
+                <p class="dropdown-item">3</p>
+                <p class="dropdown-item">4</p>
+                <p class="dropdown-item">5</p>
+            </div>
+        </div>
+        <br>
+        <h4>Question 6</h4>
+        <p>How much do you like movies?</p>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle q5" value="-1" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose a rating...
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <p class="dropdown-item">1</p>
+                <p class="dropdown-item">2</p>
+                <p class="dropdown-item">3</p>
+                <p class="dropdown-item">4</p>
+                <p class="dropdown-item">5</p>
+            </div>
+        </div>
+        <br>
+        <h4>Question 7</h4>
+        <p>How much do you like dancing?</p>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle q6" value="-1" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose a rating...
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <p class="dropdown-item">1</p>
+                <p class="dropdown-item">2</p>
+                <p class="dropdown-item">3</p>
+                <p class="dropdown-item">4</p>
+                <p class="dropdown-item">5</p>
+            </div>
+        </div>
+        <br>
+        <h4>Question 8</h4>
+        <p>How much do you like singing?</p>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle q7" value="-1" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose a rating...
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <p class="dropdown-item">1</p>
+                <p class="dropdown-item">2</p>
+                <p class="dropdown-item">3</p>
+                <p class="dropdown-item">4</p>
+                <p class="dropdown-item">5</p>
+            </div>
+        </div>
+        <br>
+        <h4>Question 9</h4>
+        <p>How much do you like sports?</p>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle q8" value="-1" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose a rating...
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <p class="dropdown-item">1</p>
+                <p class="dropdown-item">2</p>
+                <p class="dropdown-item">3</p>
+                <p class="dropdown-item">4</p>
+                <p class="dropdown-item">5</p>
+            </div>
+        </div>
+        <br>
+        <h4>Question 10</h4>
+        <p>How much do you like the outdoors?</p>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle q9" value="-1" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose a rating...
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <p class="dropdown-item">1</p>
+                <p class="dropdown-item">2</p>
+                <p class="dropdown-item">3</p>
+                <p class="dropdown-item">4</p>
+                <p class="dropdown-item">5</p>
+            </div>
+        </div>
+        <br>
+        <button id="submit-stats-btn"
+            style="background-color: cornflowerblue; width: 90vw; height: 50px; color: white; font-size: 25px">Submit
+            Stats</button>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        $("#submit-stats-btn").on("click", function () {
+
+            // check to make sure everything has been chosen
+            for (var i = 0; i < 10; ++i) {
+
+                //console.log(parseInt($(".q" + i).attr("value")));
+                if (parseInt($(".q" + i).attr("value")) === -1) {
+                    alert("You need to answer all the questions!");
+                    return;
+                }
+            }
+
+            // all questions have been answered
+            // send users answers
+            // send back the friend that matches best
+        });
+
+        $(".dropdown-item").on("click", function () {
+
+            //console.log($(this).parent().parent().children(".btn").first());
+            $(this).parent().parent().children(".btn").first().attr("value", $(this).text());
+            $(this).parent().parent().children(".btn").first().text($(this).text());
+            //$(".btn:first-child").text($(this).text());
+            //console.log($(this).text());
+        });
+    </script>
+</body>
+
+</html>
