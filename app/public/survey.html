@@ -183,15 +183,40 @@
             </div>
         </div>
         <br>
-        <button id="submit-stats-btn"
+        <!-- <button id="submit-stats-btn"
             style="background-color: cornflowerblue; width: 90vw; height: 50px; color: white; font-size: 25px">Submit
-            Stats</button>
+            Stats</button> -->
+
+            <!-- Button trigger modal -->
+            <button type="button" 
+            style="background-color: cornflowerblue; width: 90vw; height: 50px; color: white; font-size: 25px"
+                id="submit-stats-btn">
+                Submit Stats </button>
+  <!-- Modal -->
+ <!--<div id= "modal-best-match" data-toggle="modal" data-target="#exampleModal" ></div>--> 
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" >
+      <div class="modal-content"  style = "width: 800px" >
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-best-match-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img id="image-best-match" src="" alt="No image  found.">
+        </div>
+      </div>
+    </div>
+  </div>
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
@@ -201,21 +226,53 @@
 
     <script>
 
-        $("#submit-stats-btn").on("click", function () {
+
+        $("#submit-stats-btn").on("click", function (e) {
+
+            e.preventDefault();
 
             // check to make sure everything has been chosen
             for (var i = 0; i < 10; ++i) {
 
                 //console.log(parseInt($(".q" + i).attr("value")));
                 if (parseInt($(".q" + i).attr("value")) === -1) {
+                   
                     alert("You need to answer all the questions!");
+                    
                     return;
                 }
             }
 
+            // make sure the name and url have been set
+            if($("#input-name").val() === ""){
+                alert("You need to add your name!");
+                 return;
+            }
+            if($("#input-photo").val() === ""){
+                alert("You need to add a photo!");
+                 return;
+            }
+
             // all questions have been answered
             // send users answers
-            // send back the friend that matches best
+            var scores = [];
+            for (var i = 0; i < 10; ++i) {
+                scores.push(parseInt($(".q" + i).attr("value")));
+            }
+            var friend = {
+                name: $("#input-name").val(),
+                scores: scores,
+                photo: $("#input-photo").val()
+            };
+           
+            $.post("/api/friends", friend).then(function( _res){
+                console.log(_res);
+                $("#modal-best-match-title").text(_res.name);
+                $("#image-best-match").attr("src", _res.photo);
+            });
+            
+            $("#exampleModal").modal("show");
+
         });
 
         $(".dropdown-item").on("click", function () {

@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/kurtisp2019/FriendFinder#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect": "^3.6.6",
     "express": "^4.16.4",
     "path": "^0.12.7"
   }
