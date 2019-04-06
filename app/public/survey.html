@@ -9,18 +9,59 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       
+        <style>
+
+h1{
+            color: cornflowerblue;
+            font-size: 40px;
+        }
+        h2, h4{
+            color: lightseagreen;
+        }
+
+.submitStatsBtn{
+    background-color: lightseagreen;
+    width: 90vw; 
+    height: 50px; 
+    color: white; 
+    font-size: 25px"
+}
+
+.mainContent {
+    margin-left: 50px; 
+    margin-top:25px; 
+    margin-right: 50px
+}
+
+#input-name,
+#input-photo{
+    width:90vw;
+}
+
+.modal-content{
+   width: 800px;
+}
+#dropdownMenuButton{
+    background-color: cornflowerblue;
+}
+body{
+    background-color: whitesmoke;
+}
+        </style>
 </head>
 
 <body>
 
-    <div style="margin-left: 50px; margin-top:25px; margin-right: 50px">
+    <div class="mainContent">
         <h1>Survey Questions</h1>
         <hr>
         <h2>About You</h2>
         <p>Name (required) </p>
-        <input type="text" id="input-name" style="width:90vw">
-        <p>Photo (required) </p>
-        <input type="text" id="input-photo" style="width:90vw">
+        <input type="text" id="input-name">
+        <br><br>
+        <p>Photo URL (required) </p>
+        <input type="text" id="input-photo">
 
         <hr>
         <h4>Question 1</h4>
@@ -183,20 +224,14 @@
             </div>
         </div>
         <br>
-        <!-- <button id="submit-stats-btn"
-            style="background-color: cornflowerblue; width: 90vw; height: 50px; color: white; font-size: 25px">Submit
-            Stats</button> -->
 
-            <!-- Button trigger modal -->
-            <button type="button" 
-            style="background-color: cornflowerblue; width: 90vw; height: 50px; color: white; font-size: 25px"
-                id="submit-stats-btn">
-                Submit Stats </button>
+            <!-- submit user stats button -->
+            <button type="button" class = "submitStatsBtn" id="submit-stats-btn"> Submit Stats </button>
   <!-- Modal -->
  <!--<div id= "modal-best-match" data-toggle="modal" data-target="#exampleModal" ></div>--> 
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document" >
-      <div class="modal-content"  style = "width: 800px" >
+      <div class="modal-content"  >
         <div class="modal-header">
           <h5 class="modal-title" id="modal-best-match-title">Modal title</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -267,7 +302,7 @@
            
             $.post("/api/friends", friend).then(function( _res){
                 console.log(_res);
-                $("#modal-best-match-title").text(_res.name);
+                $("#modal-best-match-title").text("Congratulations, You matched with..." + _res.name + "!");
                 $("#image-best-match").attr("src", _res.photo);
             });
             
