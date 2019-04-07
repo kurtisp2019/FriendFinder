@@ -21,6 +21,9 @@
             color: lightseagreen;
         }
 
+#modal-best-match-title{
+    color: cornflowerblue;
+}
         #image-best-match{
             width: 325px;
             
@@ -297,8 +300,8 @@
 
     <script>
 
-$("#image-best-match").attr("src", "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-$("#exampleModal").modal("show");
+// $("#image-best-match").attr("src", "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+// $("#exampleModal").modal("show");
  
 
         $("#submit-stats-btn").on("click", function (e) {
@@ -341,7 +344,7 @@ $("#exampleModal").modal("show");
 
             $.post("/api/friends", friend).then(function (_res) {
                 console.log(_res);
-                $("#modal-best-match-title").text("Congratulations, You matched with..." + _res.name + "!");
+                 $("#modal-best-match-title").text("Congratulations, You matched with..." + _res.name + "!");
                 $("#image-best-match").attr("src", _res.photo);
             });
 
@@ -358,25 +361,6 @@ $("#exampleModal").modal("show");
             //console.log($(this).text());
         });
 
-               // /* media queries */
-               if (matchMedia) {
-            const mq = window.matchMedia("(min-width: 992px)");
-            mq.addListener(windowSizeChange);
-            windowSizeChange(mq);
-        }
-
-        function windowSizeChange(_mq) {
-
-            // window is at least 600px
-            if (mq.matches) {
-                $(".modal-dialog").removeClass("modal-sm");
-                $(".modal-dialog").addClass("modal-lg");
-            }
-            else {
-                $(".modal-dialog").removeClass("modal-lg");
-                $(".modal-dialog").addClass("modal-sm");
-            }
-        }
     </script>
 </body>
 
