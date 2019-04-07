@@ -21,6 +21,11 @@
             color: lightseagreen;
         }
 
+        #image-best-match{
+            width: 325px;
+            
+        }
+
         .submitStatsBtn {
             background-color: lightseagreen;
             width: 100%;
@@ -51,11 +56,21 @@
         }
 
         /* for tablets*/
-        @media only screen and (min-width: 600px) {}
+        @media only screen and (min-width: 600px) {
+
+            #image-best-match{
+            width: 325px;
+            
+        }
+        }
 
         /* for desktops*/
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: 992px) {
 
+            #image-best-match{
+            width: 765px;
+            
+        }
             #input-name,
             #input-photo {
                 width: 90vw;
@@ -282,6 +297,8 @@
 
     <script>
 
+$("#image-best-match").attr("src", "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+$("#exampleModal").modal("show");
  
 
         $("#submit-stats-btn").on("click", function (e) {
@@ -343,7 +360,7 @@
 
                // /* media queries */
                if (matchMedia) {
-            const mq = window.matchMedia("(min-width: 600px)");
+            const mq = window.matchMedia("(min-width: 992px)");
             mq.addListener(windowSizeChange);
             windowSizeChange(mq);
         }
