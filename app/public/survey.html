@@ -9,46 +9,75 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-       
-        <style>
 
-h1{
+    <style>
+        h1 {
             color: cornflowerblue;
             font-size: 40px;
         }
-        h2, h4{
+
+        h2,
+        h4 {
             color: lightseagreen;
         }
 
-.submitStatsBtn{
-    background-color: lightseagreen;
-    width: 90vw; 
-    height: 50px; 
-    color: white; 
-    font-size: 25px"
-}
+        .submitStatsBtn {
+            background-color: lightseagreen;
+            width: 100%;
+            height: 50px;
+            color: white;
+            font-size: 25px;
+            margin-right: 20px;
 
-.mainContent {
-    margin-left: 50px; 
-    margin-top:25px; 
-    margin-right: 50px
-}
+        }
 
-#input-name,
-#input-photo{
-    width:90vw;
-}
+        .mainContent {
+            margin-left: 20px;
+            margin-top: 25px;
 
-.modal-content{
-   width: 800px;
-}
-#dropdownMenuButton{
-    background-color: cornflowerblue;
-}
-body{
-    background-color: whitesmoke;
-}
-        </style>
+        }
+
+        #input-name,
+        #input-photo {
+            width: 80vw;
+        }
+
+        .modal-content {
+            width: 400px;
+            
+        }
+
+        #dropdownMenuButton {
+            background-color: cornflowerblue;
+        }
+
+        body {
+            background-color: whitesmoke;
+        }
+
+        /* for tablets*/
+        @media only screen and (min-width: 600px) {}
+
+        /* for desktops*/
+        @media only screen and (min-width: 768px) {
+
+            #input-name,
+            #input-photo {
+                width: 90vw;
+            }
+
+            .modal-content {
+                width: 800px;
+            }
+            .submitStatsBtn {
+            background-color: lightseagreen;
+            width: 90vw;
+            height: 50px;
+            font-size: 25px;
+
+        }
+        }
+    </style>
 </head>
 
 <body>
@@ -225,27 +254,27 @@ body{
         </div>
         <br>
 
-            <!-- submit user stats button -->
-            <button type="button" class = "submitStatsBtn" id="submit-stats-btn"> Submit Stats </button>
-  <!-- Modal -->
- <!--<div id= "modal-best-match" data-toggle="modal" data-target="#exampleModal" ></div>--> 
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document" >
-      <div class="modal-content"  >
-        <div class="modal-header">
-          <h5 class="modal-title" id="modal-best-match-title">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <!-- submit user stats button -->
+        <button type="button" class="submitStatsBtn" id="submit-stats-btn"> Submit Stats </button>
+        <!-- Modal -->
+        <!--<div id= "modal-best-match" data-toggle="modal" data-target="#exampleModal" ></div>-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-best-match-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="image-best-match" src="" alt="No image  found.">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <img id="image-best-match" src="" alt="No image  found.">
-        </div>
-      </div>
     </div>
-  </div>
-    </div>
-
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -261,7 +290,25 @@ body{
 
     <script>
 
+        /* media queries */
+        if(matchMedia){
+            const mq = window.matchMedia( "(min-width: 600px)");
+            mq.addListener(windowSizeChange);
+            windowSizeChange(mq);
+        }
+        
+        function windowSizeChange(_mq){
 
+            // window is at least 600px
+            if(mq.matches){
+                $(".modal-dialog").removeClass("modal-sm");
+                $(".modal-dialog").addClass("modal-lg");
+            }
+            else {
+                $(".modal-dialog").removeClass("modal-lg");
+                $(".modal-dialog").addClass("modal-sm");
+            }
+        }
         $("#submit-stats-btn").on("click", function (e) {
 
             e.preventDefault();
@@ -271,21 +318,21 @@ body{
 
                 //console.log(parseInt($(".q" + i).attr("value")));
                 if (parseInt($(".q" + i).attr("value")) === -1) {
-                   
+
                     alert("You need to answer all the questions!");
-                    
+
                     return;
                 }
             }
 
             // make sure the name and url have been set
-            if($("#input-name").val() === ""){
+            if ($("#input-name").val() === "") {
                 alert("You need to add your name!");
-                 return;
+                return;
             }
-            if($("#input-photo").val() === ""){
+            if ($("#input-photo").val() === "") {
                 alert("You need to add a photo!");
-                 return;
+                return;
             }
 
             // all questions have been answered
@@ -299,13 +346,13 @@ body{
                 scores: scores,
                 photo: $("#input-photo").val()
             };
-           
-            $.post("/api/friends", friend).then(function( _res){
+
+            $.post("/api/friends", friend).then(function (_res) {
                 console.log(_res);
                 $("#modal-best-match-title").text("Congratulations, You matched with..." + _res.name + "!");
                 $("#image-best-match").attr("src", _res.photo);
             });
-            
+
             $("#exampleModal").modal("show");
 
         });
