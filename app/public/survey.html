@@ -42,11 +42,6 @@
             width: 80vw;
         }
 
-        .modal-content {
-            width: 400px;
-            
-        }
-
         #dropdownMenuButton {
             background-color: cornflowerblue;
         }
@@ -66,16 +61,13 @@
                 width: 90vw;
             }
 
-            .modal-content {
-                width: 800px;
-            }
             .submitStatsBtn {
-            background-color: lightseagreen;
-            width: 90vw;
-            height: 50px;
-            font-size: 25px;
+                background-color: lightseagreen;
+                width: 90vw;
+                height: 50px;
+                font-size: 25px;
 
-        }
+            }
         }
     </style>
 </head>
@@ -291,16 +283,16 @@
     <script>
 
         /* media queries */
-        if(matchMedia){
-            const mq = window.matchMedia( "(min-width: 600px)");
+        if (matchMedia) {
+            const mq = window.matchMedia("(min-width: 600px)");
             mq.addListener(windowSizeChange);
             windowSizeChange(mq);
         }
-        
-        function windowSizeChange(_mq){
+
+        function windowSizeChange(_mq) {
 
             // window is at least 600px
-            if(mq.matches){
+            if (mq.matches) {
                 $(".modal-dialog").removeClass("modal-sm");
                 $(".modal-dialog").addClass("modal-lg");
             }
