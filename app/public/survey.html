@@ -282,25 +282,8 @@
 
     <script>
 
-        /* media queries */
-        if (matchMedia) {
-            const mq = window.matchMedia("(min-width: 600px)");
-            mq.addListener(windowSizeChange);
-            windowSizeChange(mq);
-        }
+ 
 
-        function windowSizeChange(_mq) {
-
-            // window is at least 600px
-            if (mq.matches) {
-                $(".modal-dialog").removeClass("modal-sm");
-                $(".modal-dialog").addClass("modal-lg");
-            }
-            else {
-                $(".modal-dialog").removeClass("modal-lg");
-                $(".modal-dialog").addClass("modal-sm");
-            }
-        }
         $("#submit-stats-btn").on("click", function (e) {
 
             e.preventDefault();
@@ -357,6 +340,26 @@
             //$(".btn:first-child").text($(this).text());
             //console.log($(this).text());
         });
+
+               // /* media queries */
+               if (matchMedia) {
+            const mq = window.matchMedia("(min-width: 600px)");
+            mq.addListener(windowSizeChange);
+            windowSizeChange(mq);
+        }
+
+        function windowSizeChange(_mq) {
+
+            // window is at least 600px
+            if (mq.matches) {
+                $(".modal-dialog").removeClass("modal-sm");
+                $(".modal-dialog").addClass("modal-lg");
+            }
+            else {
+                $(".modal-dialog").removeClass("modal-lg");
+                $(".modal-dialog").addClass("modal-sm");
+            }
+        }
     </script>
 </body>
 
